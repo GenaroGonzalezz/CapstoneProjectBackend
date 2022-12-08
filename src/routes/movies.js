@@ -1,0 +1,18 @@
+//1st Create the routes
+
+const express = require("express");
+
+const moviesController = require("../controller/movies-controller");
+
+const router = express.Router();
+
+router.get("/", moviesController.getMovies);
+// GET /movies/
+
+router.post("/", moviesController.saveMovie);
+
+router.put("/:id", moviesController.updateMovie);
+
+router.delete("/:id", moviesController.deleteMovie);
+
+module.exports = router;
