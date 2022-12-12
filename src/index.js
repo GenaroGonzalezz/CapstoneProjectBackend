@@ -1,38 +1,38 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require("cors");
 require("dotenv").config();
 
 const moviesRouter = require("./routes/movies");
 
 
 const app = express();
-const port = 2000;
+const port = process.env.PORT || 2000;
 
-
+app.use(express.json());
+app.use(cors());
 
 app.get("/", (req, res) => {
-    res.send("Alo");
+    res.send("Welcome to CLONEFLIX");
 })
 
 app.use("/movies", moviesRouter);
 
 
-const connectDb = async () => {
+const connectDb = () => {
     mongoose.set('strictQuery', true);
-    try {
-        await mongoose.connect(process.env.DB_STRING);
-        console.log("Database connected");
-    }
-    catch (error) { 
-        console.log('===========================Fallo de conexión========================')
-        console.log(error);
-    }
+
+    mongoose.connect(process.env.DB_STRING);
+    console.log("Database connected");
+
+
 }
 
 
-app.listen(port, async () => {
+const server = app.listen(port, () => {
     console.log(`Server is running in port ${port} `);
-    await connectDb();
+    connectDb();
 });
 
 
+module.exports = { app, server };

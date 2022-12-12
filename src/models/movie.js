@@ -4,24 +4,24 @@ const mongoose = require("mongoose");
 const MovieSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true,
+        // required: true,
     },
     synopsis: {
         type: String,
     },
-    coverImage: {
-        type: String,
-    },
+   
     genre: {
         type: String,
-        required: true,
     },
     movieUrl: {
         type: String,
     },
     releaseDate: {
-        type: Date,
-    }
+        type: String,
+    },
+    coverImage: {
+        type: String,
+    },
 });
 
 const MovieModel = mongoose.model("Movie", MovieSchema);

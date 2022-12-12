@@ -2,15 +2,20 @@
 const Movie = require("../models/movie");
 
 const getMovies = async () => {
-  const movies = await Movie.find().lean().exec(); //Execute search
-  return movies;
+    try{
+        const movies = await Movie.find().lean().exec(); //Execute search
+        return movies;
+    }
+    catch(error){
+        console.log(error);
+    }
+  
 };
 
 const saveMovie = async (movie) => {
   const savedMovie = new Movie(movie);
 
   await savedMovie.save();
-
   return savedMovie;
 };
 

@@ -6,8 +6,8 @@ const moviesController = require("../controller/movies-controller");
 
 const router = express.Router();
 
-router.get("/", moviesController.getMovies);
 // GET /movies/
+router.get("/", moviesController.getMovies);
 
 router.post("/", moviesController.saveMovie);
 

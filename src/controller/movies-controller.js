@@ -1,7 +1,7 @@
+//2nd Create controllers
 const MovieService = require("../services/movie-service");
 
 const getMovies = async (req, res) => {
-//2nd Create controllers
     const movies = await MovieService.getMovies();
 
   res.json(movies);
