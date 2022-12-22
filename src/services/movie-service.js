@@ -9,7 +9,6 @@ const getMovies = async () => {
     catch(error){
         console.log(error);
     }
-  
 };
 
 const saveMovie = async (movie) => {
