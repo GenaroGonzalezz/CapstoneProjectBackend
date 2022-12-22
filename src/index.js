@@ -16,8 +16,8 @@ app.get("/", (req, res) => {
     res.send("Welcome to kinda CLONEFLIX");
 })
 
-// app.use("/movies", moviesRouter);
-app.get("/movies", moviesRouter);
+app.use("/movies", moviesRouter);
+
 
 const connectDb = () => {
     mongoose.set('strictQuery', true);
