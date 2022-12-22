@@ -22,7 +22,7 @@ app.use("/movies", moviesRouter);
 const connectDb = () => {
     mongoose.set('strictQuery', true);
 
-    mongoose.connect(process.env.DB_STRING);
+    mongoose.connect(process.env.DB_URI);
     console.log("Database connected");
 
 
