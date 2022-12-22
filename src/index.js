@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/", (req, res) => {
-    res.send("Welcome to CLONEFLIX");
+    res.send("Welcome to kinda CLONEFLIX");
 })
 
 app.use("/movies", moviesRouter);
