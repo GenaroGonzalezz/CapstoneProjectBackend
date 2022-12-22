@@ -22,6 +22,9 @@ const MovieSchema = new mongoose.Schema({
     coverImage: {
         type: String,
     },
+    fav:{
+        type: Boolean,
+    }
 });
 
 const MovieModel = mongoose.model("Movie", MovieSchema);
