@@ -12,8 +12,12 @@ const port = process.env.PORT || 2000;
 app.use(express.json());
 app.use(cors());
 
-app.get("/", (req, res) => {
-    res.send("Welcome to kinda CLONEFLIX");
+app.get("/movies", async(req, res) => {
+    // res.send("Welcome to kinda CLONEFLIX");
+    const movies = await MovieService.getMovies();
+
+    res.json(movies);
+
 })
 
 app.use("/movies", moviesRouter);
