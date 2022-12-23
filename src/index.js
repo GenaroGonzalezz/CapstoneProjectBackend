@@ -1,5 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
+import { connect } from "mongoose";
+
 const cors = require("cors");
 require("dotenv").config();
 
@@ -20,11 +22,12 @@ app.get("/", (req, res) => {
 app.use("/movies", moviesRouter);
 
 const dburl = 'mongodb+srv://capstone-user:47hCv55EwEzvc5TJ@moviesdb.otbyvlg.mongodb.net/movie-catalog?retryWrites=true&w=majority';
-const connectDb = () => {
+export const MONGODB_URI = process.env.MONGODB_URI;
+const connectDb = async () => {
     mongoose.set('strictQuery', true);
 
-    mongoose.connect(dburl);
-    console.log("Database connected");
+    const db = await connect(MONGODB_URI);
+    console.log("Database connected on ", db.connection.name);
 
 
 }
