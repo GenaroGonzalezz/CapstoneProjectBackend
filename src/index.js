@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-import { connect } from "mongoose";
 
 const cors = require("cors");
 require("dotenv").config();
@@ -26,8 +25,8 @@ export const MONGODB_URI = process.env.MONGODB_URI;
 const connectDb = async () => {
     mongoose.set('strictQuery', true);
 
-    const db = await connect(MONGODB_URI);
-    console.log("Database connected on ", db.connection.name);
+    const db = await mongoose.connect(MONGODB_URI);
+    console.log("Database connected");
 
 
 }
