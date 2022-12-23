@@ -4,13 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "react-scripts start",
-    "start": "serve -s build",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "npm run build"
-    },
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GenaroGonzalezz/CapstoneProjectBackend.git"
@@ -26,6 +24,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "heroku": "^7.67.1",
     "mongoose": "^6.8.0",
     "serve": "^14.1.2"
   }
