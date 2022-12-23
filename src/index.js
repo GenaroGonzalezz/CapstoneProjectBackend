@@ -32,10 +32,10 @@ const connectDb = async () => {
 }
 
 
-const server = app.listen(port, () => {
+app.listen(port, () => {
     console.log(`Server is running in port ${port} `);
     connectDb();
 });
 
 
-module.exports = { app, server };
+module.exports = { app };
