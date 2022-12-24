@@ -27,7 +27,7 @@ export const MONGODB_URI = process.env.MONGODB_URI;
 const connectDb = async () => {
     mongoose.set('strictQuery', true);
 
-    const db = await mongoose.connect(MONGODB_URI);
+    await mongoose.connect(MONGODB_URI);
     console.log("Database connected");
 
 
