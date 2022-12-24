@@ -23,11 +23,11 @@ app.use("/movies", moviesRouter);
 
 
 const dburl = 'mongodb+srv://capstone-user:47hCv55EwEzvc5TJ@moviesdb.otbyvlg.mongodb.net/movie-catalog?retryWrites=true&w=majority';
-export const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI;
 const connectDb = async () => {
     mongoose.set('strictQuery', true);
 
-    await mongoose.connect(MONGODB_URI);
+    await mongoose.connect(MONGODB_URI || dburl);
     console.log("Database connected");
 
 
